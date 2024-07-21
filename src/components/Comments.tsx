@@ -1,4 +1,5 @@
-import { Divider, Card } from "antd";
+import { useState } from 'react';
+import { Divider, Card, Button, Form, Input, Space } from "antd";
 import { styled } from "@stitches/react";
 
 const Wrapper = styled("div", {
@@ -54,12 +55,49 @@ type CommentProps = {
   data: {comments: Comment[]};
 };
 
+const cmtBtnStyle = {
+    marginTop: "0.5vh",
+    background: "rgb(193, 175, 165)",
+    borderColor: "rgb(193, 175, 165)",
+};
+
 export default function Comments({ data }: CommentProps) {
+    const [isInputMode, setIsInputMode] = useState(false);
+    const [isDeleteMode, setIsDeleteMode] = useState(false);
+    const [comment, setComment] = useState("");
+
+    const inputOnChange = (e) => null
+    const addComment = () => null;
+
     return <Wrapper>
       <Divider plain style={{ marginTop: 0, marginBottom: 15 }}>
         <Title>댓글</Title>
       </Divider>
+
         <CommentsCnt>
+{isInputMode
+        ? <Form>
+                    <Space.Compact direction="vertical" style={{ width:"-moz-available" }}>
+                <Input type={Input.TextArea} style={{ borderColor: "rgb(193, 175, 165)"}} onChange={inputOnChange}/>
+                    <Space.Compact direction="horizontal">
+                        <Button size="small"
+                                style={cmtBtnStyle}
+                                >
+                            추가
+                        </Button>
+                        <Button size="small" onClick={()=>setIsInputMode(!isInputMode)} style={cmtBtnStyle} danger>
+                           취소
+                        </Button>
+                    </Space.Compact>
+                    </Space.Compact>
+            </Form>
+        :<Button
+            size="small"
+            onClick={()=>setIsInputMode(!isInputMode)}
+            style={{ float: "right", marginRight: "2vh", background: "rgb(193, 175, 165)", borderColor: "rgb(193, 175, 165)", width: "fit-content" }}>
+            댓글달기
+        </Button>
+        }
         {data.comments.map((c, idx)=>{
 
         return <CommentCnt key={`comment-key-${idx}`}>
