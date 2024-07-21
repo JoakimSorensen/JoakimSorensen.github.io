@@ -64,6 +64,7 @@ const cmtBtnStyle = {
 export default function Comments({ data }: CommentProps) {
     const [isInputMode, setIsInputMode] = useState(false);
     const [isDeleteMode, setIsDeleteMode] = useState(false);
+    const [sender, setSender] = useState("");
     const [comment, setComment] = useState("");
 
     const inputOnChange = () => null
@@ -77,15 +78,27 @@ export default function Comments({ data }: CommentProps) {
         <CommentsCnt>
 {isInputMode
         ? <Form>
-                    <Space.Compact direction="vertical" style={{ width:"100%" }}>
-                <Input type="textarea" style={{ borderColor: "rgb(193, 175, 165)"}} onChange={inputOnChange}/>
+            <Space.Compact direction="vertical" style={{ width:"100%" }}>
+                <Input
+                    type="textarea"
+                    style={{ borderColor: "rgb(193, 175, 165)"}}
+                    placeholder="성함"/>
+                <Input
+                    type="textarea"
+                    style={{ borderColor: "rgb(193, 175, 165)"}}
+                    placeholder="댓글"
+                    onChange={inputOnChange}/>
                     <Space.Compact direction="horizontal">
-                        <Button size="small"
-                                style={cmtBtnStyle}
-                                >
+                        <Button
+                            size="small"
+                            style={cmtBtnStyle}>
                             추가
                         </Button>
-                        <Button size="small" onClick={()=>setIsInputMode(!isInputMode)} style={cmtBtnStyle} danger>
+                        <Button
+                            size="small"
+                            onClick={()=>setIsInputMode(!isInputMode)}
+                            style={cmtBtnStyle}
+                            danger>
                            취소
                         </Button>
                     </Space.Compact>
