@@ -23,7 +23,7 @@ const CommentsCnt = styled("div", {
     textAlign: "left",
     marginLeft: "2vh",
     marginRight: "2vh",
-    maxHeight: "20vh",
+    maxHeight: "40vh",
     overflow: "auto",
 });
 
@@ -33,13 +33,13 @@ const CommentCnt = styled("div", {
 });
 
 const Comment = styled("p", {
-    fontSize: "1.5vh",
+    fontSize: "2vh",
     opacity: 0.85,
     marginTop: 0,
 });
 
 const CommentTitle = styled("p", {
-    fontSize: "1.5vh",
+    fontSize: "2vh",
     fontWeight: "bold",
     opacity: 0.85,
     marginBottom: 0,
@@ -77,7 +77,7 @@ export default function Comments({ data }: CommentProps) {
         <CommentsCnt>
 {isInputMode
         ? <Form>
-                    <Space.Compact direction="vertical" style={{ width:"-moz-available" }}>
+                    <Space.Compact direction="vertical" style={{ width:"100%" }}>
                 <Input type="textarea" style={{ borderColor: "rgb(193, 175, 165)"}} onChange={inputOnChange}/>
                     <Space.Compact direction="horizontal">
                         <Button size="small"
