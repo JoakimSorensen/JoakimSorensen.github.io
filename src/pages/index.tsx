@@ -51,7 +51,7 @@ export default function Home() {
           name="Description"
         />
         <meta content="2024년 10월 06일 일요일 오후 13시 00분" name="Keyword" />
-        <meta property="og:title" content="○○○❤○○○ 결혼식에 초대합니다" />
+        <meta property="og:title" content="김지연❤요아킴 결혼식에 초대합니다" />
         <meta
           property="og:description"
           content="2024년 10월 06일 일요일 오후 13시 00분"
