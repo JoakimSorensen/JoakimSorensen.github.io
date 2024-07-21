@@ -94,7 +94,7 @@ export default function Comments({ data }: CommentProps) {
                     placeholder="성함"/>
                 <Input
                     type="textarea"
-                    style={{ borderColor: "rgb(193, 175, 165)"}}
+                    style={{ borderColor: "rgb(193, 175, 165)", minHeight: "10vh"}}
                     placeholder="댓글"
                     onChange={inputOnChange}/>
                     <Space.Compact direction="horizontal">
