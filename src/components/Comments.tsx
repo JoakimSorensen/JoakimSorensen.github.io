@@ -74,7 +74,16 @@ export default function Comments({ data }: CommentProps) {
       <Divider plain style={{ marginTop: 0, marginBottom: 15 }}>
         <Title>댓글</Title>
       </Divider>
-
+        {
+            !isInputMode
+            ? <Button
+            size="small"
+            onClick={()=>setIsInputMode(!isInputMode)}
+            style={{ float: "right", marginRight: "2vh", background: "rgb(193, 175, 165)", borderColor: "rgb(193, 175, 165)", width: "fit-content" }}>
+            댓글달기
+        </Button>
+        : null
+        }
         <CommentsCnt>
 {isInputMode
         ? <Form>
@@ -104,12 +113,7 @@ export default function Comments({ data }: CommentProps) {
                     </Space.Compact>
                     </Space.Compact>
             </Form>
-        :<Button
-            size="small"
-            onClick={()=>setIsInputMode(!isInputMode)}
-            style={{ float: "right", marginRight: "2vh", background: "rgb(193, 175, 165)", borderColor: "rgb(193, 175, 165)", width: "fit-content" }}>
-            댓글달기
-        </Button>
+        : null
         }
         {data.comments.map((c, idx)=>{
 
