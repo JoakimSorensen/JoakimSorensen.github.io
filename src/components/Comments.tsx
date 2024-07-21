@@ -44,8 +44,14 @@ const CommentTitle = styled("p", {
     marginBottom: 0,
 });
 
+type Comment = {
+    name: string;
+    id: number;
+    content: string;
+}
+
 type CommentProps = {
-  data?: Data;
+  data: {comments: Comment[]};
 };
 
 export default function Comments({ data }: CommentProps) {
@@ -54,9 +60,9 @@ export default function Comments({ data }: CommentProps) {
         <Title>댓글</Title>
       </Divider>
         <CommentsCnt>
-        {data.comments.map((c)=>{
+        {data.comments.map((c, idx)=>{
 
-        return <CommentCnt>
+        return <CommentCnt key={`comment-key-${idx}`}>
             <CommentTitle>
                         {c.name}
             </CommentTitle>
