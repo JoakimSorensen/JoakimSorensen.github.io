@@ -66,7 +66,7 @@ export default function Comments({ data }: CommentProps) {
     const [isDeleteMode, setIsDeleteMode] = useState(false);
     const [comment, setComment] = useState("");
 
-    const inputOnChange = (e) => null
+    const inputOnChange = () => null
     const addComment = () => null;
 
     return <Wrapper>
@@ -78,7 +78,7 @@ export default function Comments({ data }: CommentProps) {
 {isInputMode
         ? <Form>
                     <Space.Compact direction="vertical" style={{ width:"-moz-available" }}>
-                <Input type={Input.TextArea} style={{ borderColor: "rgb(193, 175, 165)"}} onChange={inputOnChange}/>
+                <Input type="textarea" style={{ borderColor: "rgb(193, 175, 165)"}} onChange={inputOnChange}/>
                     <Space.Compact direction="horizontal">
                         <Button size="small"
                                 style={cmtBtnStyle}
